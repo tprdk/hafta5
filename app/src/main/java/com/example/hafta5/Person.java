@@ -17,9 +17,6 @@ public class Person  implements Serializable{
     private String password;
     private int image;
 
-    private static final String FILE_NAME = "person.txt";
-
-
     public Person(String name, String surname, String email, String username, String password, int image) {
         this.name= name;
         this.surname = surname;

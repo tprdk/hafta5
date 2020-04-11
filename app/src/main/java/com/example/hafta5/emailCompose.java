@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.io.File;
 
 public class emailCompose extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,16 +34,25 @@ public class emailCompose extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
-        String sender = editText_from.getText().toString();
         String receiver = editText_to.getText().toString();
         String message = editText_mail.getText().toString();
         String subject = editText_subject.getText().toString();
 
+        /*
         Intent mailIntent = new Intent(Intent.ACTION_SENDTO , Uri.fromParts(
                 "mailto", receiver, null));
+        mailIntent.putExtra(Intent.EXTRA_STREAM, path);
         mailIntent.putExtra(Intent.EXTRA_SUBJECT , subject);
         mailIntent.putExtra(Intent.EXTRA_TEXT , message);
         startActivity(Intent.createChooser(mailIntent, "Send email via..."));
+        */
+
+        Intent mailIntent = new Intent(Intent.ACTION_SEND);
+        mailIntent.setType("text/plain");
+        mailIntent.putExtra(Intent.EXTRA_EMAIL, receiver );
+        mailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        mailIntent.putExtra(Intent.EXTRA_TEXT, message);
+
     }
+
 }

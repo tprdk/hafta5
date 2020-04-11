@@ -7,6 +7,12 @@
     <string name="hosgeldin">Welcome</string>
     <string name="metin">Metni giriniz</string>
 
+    <string name="menuActivity_sendMail">Send Email</string>
+    <string name="menuActivity_sensor">Sensor</string>
+    <string name="menuActivity_personInfo">Person Info</string>
+    <string name="menuActivity_NoteEditor">Notes</string>
+
+
     <string name="newUser_name">Name : </string>
     <string name="newUser_surname">Surname : </string>
     <string name="newUser_email">Email : </string>
@@ -18,5 +24,7 @@
     <string name="email_compose_to">To : </string>
     <string name="email_compose_subject">Subject : </string>
     <string name="email_compose_button_send">Send</string>
+
+
 
 </resources>

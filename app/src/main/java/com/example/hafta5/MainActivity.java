@@ -48,10 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             passOfPerson = editTextPass.getText().toString();
 
             if (checkPass(nameOfPerson, passOfPerson)) {
-                //Intent sensorIntent = new Intent(MainActivity.this, SensorActivity.class);
-                //startActivity(sensorIntent);
-                Intent noteActivity = new Intent(MainActivity.this, noteActivity.class);
-                startActivity(noteActivity);
+                Intent menuIntent = new Intent(MainActivity.this, MenuActivity.class);
+                startActivity(menuIntent);
             } else {
                 editTextName.setText("");
                 editTextPass.setText("");
