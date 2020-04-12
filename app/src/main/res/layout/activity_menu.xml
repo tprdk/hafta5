@@ -1,52 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MenuActivity">
 
+        <TextView
+            android:id="@+id/textView_menu_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:padding="30dp" />
+
         <Button
-            android:id="@+id/button_sendMail"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginLeft="30dp"
+            android:id="@+id/button_menu_sendMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/menuActivity_sendMail"
-            app:layout_column="0"
-            app:layout_row="0" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/black"/>
 
         <Button
-            android:id="@+id/button_sensor"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
-            android:layout_marginTop="200dp"
+            android:id="@+id/button_menu_sensor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/menuActivity_sensor"
-            app:layout_column="1"
-            app:layout_row="0" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/black"/>
 
         <Button
-            android:id="@+id/button_PersonInfo"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_margin="20dp"
-            android:layout_marginLeft="30dp"
-            android:text="@string/menuActivity_personInfo"
-            app:layout_column="0"
-            app:layout_row="1" />
-
-        <Button
-            android:id="@+id/button_NoteEditor"
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
+            android:id="@+id/button_menu_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/menuActivity_NoteEditor"
-            app:layout_column="1"
-            app:layout_row="1" />
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/black"/>
 
-</GridLayout>
+        <Button
+            android:id="@+id/button_menu_personInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/menuActivity_personInfo"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/button_menu_myInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/menuActivity_myInfo"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/black"/>
+
+</LinearLayout>

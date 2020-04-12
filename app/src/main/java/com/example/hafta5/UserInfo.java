@@ -22,53 +22,41 @@ public class UserInfo extends AppCompatActivity {
         ArrayList<Person> personList = new ArrayList<Person>();
 
         personList.add( new Person("İbrahim", "Tıpırdık"
-        , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
+        , "tprdk@outlook.com", "tprdk", "qwe123"));
 
         personList.add( new Person("Ceylin" , "Tıpırdık"
-        , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
+        , "cylntprdk@outlook.com",  "cyln", "123qwe"));
 
         personList.add( new Person("İbrahim", "Tıpırdık"
-                , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
+                , "tprdk@outlook.com", "tprdk", "qwe123"));
 
         personList.add( new Person("Ceylin" , "Tıpırdık"
-                , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
-
+                , "cylntprdk@outlook.com",  "cyln", "123qwe"));
         personList.add( new Person("İbrahim", "Tıpırdık"
-                , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
+                , "tprdk@outlook.com", "tprdk", "qwe123"));
 
         personList.add( new Person("Ceylin" , "Tıpırdık"
-                , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
-
+                , "cylntprdk@outlook.com",  "cyln", "123qwe"));
         personList.add( new Person("İbrahim", "Tıpırdık"
-                , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
+                , "tprdk@outlook.com", "tprdk", "qwe123"));
 
         personList.add( new Person("Ceylin" , "Tıpırdık"
-                , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
-
+                , "cylntprdk@outlook.com",  "cyln", "123qwe"));
         personList.add( new Person("İbrahim", "Tıpırdık"
-                , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
+                , "tprdk@outlook.com", "tprdk", "qwe123"));
 
         personList.add( new Person("Ceylin" , "Tıpırdık"
-                , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
-
+                , "cylntprdk@outlook.com",  "cyln", "123qwe"));
         personList.add( new Person("İbrahim", "Tıpırdık"
-                , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
+                , "tprdk@outlook.com", "tprdk", "qwe123"));
 
         personList.add( new Person("Ceylin" , "Tıpırdık"
-                , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
-
+                , "cylntprdk@outlook.com",  "cyln", "123qwe"));
         personList.add( new Person("İbrahim", "Tıpırdık"
-                , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
+                , "tprdk@outlook.com", "tprdk", "qwe123"));
 
         personList.add( new Person("Ceylin" , "Tıpırdık"
-                , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
-
-        personList.add( new Person("İbrahim", "Tıpırdık"
-                , "tprdk@outlook.com", "tprdk", "qwe123", R.drawable.ic_person_man));
-
-        personList.add( new Person("Ceylin" , "Tıpırdık"
-                , "cylntprdk@outlook.com",  "cyln", "123qwe", R.drawable.ic_child));
-
+                , "cylntprdk@outlook.com",  "cyln", "123qwe"));
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);

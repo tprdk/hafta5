@@ -15,18 +15,61 @@ public class Person  implements Serializable{
     private String email;
     private String username;
     private String password;
+    private String sex;
     private int image;
+    private int height;
+    private int weight;
+    private int age;
 
-    public Person(String name, String surname, String email, String username, String password, int image) {
+    public Person(String name, String surname, String email, String username, String password) {
         this.name= name;
         this.surname = surname;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.image = image;
     }
     public Person(){}
 
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
     public String getName() {
         return name;
     }

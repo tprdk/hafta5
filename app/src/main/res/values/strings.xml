@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">hafta5</string>
+    <string name="welcome">Welcome to MyApp</string>
     <string name="kullaniciAdi">Username</string>
     <string name="kullaniciSifre">Password</string>
     <string name="girisButon">Log In</string>
@@ -10,6 +11,7 @@
     <string name="menuActivity_sendMail">Send Email</string>
     <string name="menuActivity_sensor">Sensor</string>
     <string name="menuActivity_personInfo">Person Info</string>
+    <string name="menuActivity_myInfo">My Info</string>
     <string name="menuActivity_NoteEditor">Notes</string>
 
 
@@ -22,9 +24,25 @@
 
     <string name="email_compose_from">From : </string>
     <string name="email_compose_to">To : </string>
+    <string name="email_compose_cc">Cc : </string>
+    <string name="email_compose_bcc">Bcc : </string>
     <string name="email_compose_subject">Subject : </string>
+    <string name="email_compose_button_attach">Attach</string>
     <string name="email_compose_button_send">Send</string>
 
-
-
+    <string name="myInfo_name">Name :</string>
+    <string name="myInfo_gender">Gender :</string>
+    <string name="myInfo_height">Height :</string>
+    <string name="myInfo_weight">Weight :</string>
+    <string name="myInfo_age">Age :</string>
+    <string name="myInfo_mode">Mode :</string>
+    <string name="myInfo_button_save">Save</string>
+    <string-array name="myInfo_array_gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="myInfo_array_mode">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
 </resources>
