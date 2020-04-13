@@ -59,7 +59,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
             }else {
                 estimatedTime = System.currentTimeMillis() - currentTime;
                 if (estimatedTime > 5000){
-                    Toast.makeText(this, "Reached 5 seconds", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Reached 5 seconds", Toast.LENGTH_LONG).show();
                     finish();
                 }
             }

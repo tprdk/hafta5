@@ -39,15 +39,45 @@ public class newUser extends AppCompatActivity{
         button_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Person person = new Person(editText_name.getText().toString(),editText_surname.getText().toString(),
-                        editText_mail.getText().toString(),editText_username.getText().toString(),editText_password.getText().toString());
-                personList.add(person);
-                saveData();
-                Toast.makeText(newUser.this, "Account is created successfully.", Toast.LENGTH_SHORT).show();
+                if (checkExist(editText_username.getText().toString()) && checkSpace()){
+                    Person person = new Person(editText_name.getText().toString(),editText_surname.getText().toString(),
+                            editText_mail.getText().toString(),editText_username.getText().toString(),editText_password.getText().toString());
+                    personList.add(person);
+                    saveData();
+                    Toast.makeText(newUser.this, "Account is created successfully.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    if (!checkSpace()){
+                        Toast.makeText(newUser.this, "Any information can not be space.", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(newUser.this, "This username is already in use.", Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
     }
 
+    private boolean checkSpace(){
+        return (editText_name.getText().toString().trim() != "" &&
+                editText_password.getText().toString().trim() != ""&&
+                editText_surname.getText().toString().trim() != "" &&
+                editText_password2.getText().toString().trim() != ""&&
+                editText_username.getText().toString().trim() != "" &&
+                editText_mail.getText().toString().trim() != "");
+    }
+
+    private boolean checkExist(String username){
+        boolean flag = true;
+        int i=0;
+
+        while (flag && i < personList.size()){
+            if (personList.get(i).getUsername().equals(username))
+                flag = false;
+            else
+                i++;
+        }
+        return flag;
+    }
     public void saveData(){
         SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();

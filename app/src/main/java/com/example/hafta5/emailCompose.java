@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class emailCompose extends AppCompatActivity {//implements View.OnClickListener {
+public class emailCompose extends AppCompatActivity {
 
     Button buttonSend, buttonAttach;
     EditText editText_to, editText_from, editText_subject, editText_mail;
@@ -24,7 +24,6 @@ public class emailCompose extends AppCompatActivity {//implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_compose);
 
-        editText_from = (EditText) findViewById(R.id.editText_from);
         editText_to = (EditText) findViewById(R.id.editText_to);
         editText_mail = (EditText) findViewById(R.id.editText_mail);
         editText_subject = (EditText) findViewById(R.id.editText_subject);
@@ -45,7 +44,6 @@ public class emailCompose extends AppCompatActivity {//implements View.OnClickLi
                 addAttach();
             }
         });
-       // buttonSend.setOnClickListener(this);
     }
 
     public void sendMail(){

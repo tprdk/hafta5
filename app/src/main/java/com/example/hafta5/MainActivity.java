@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int position;
     private ArrayList<Person> personList;
     public static final String EXTRA_INT = "INDEX";
+    private int iter=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         loadData();
-        editTextName.setText("tprdk");
-        editTextPass.setText("111aaa");
     }
 
     @Override
@@ -62,12 +62,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             position = checkPass(nameOfPerson, passOfPerson);
 
             if ( position != -1 ) {
+                iter = 0;
                 Intent menuIntent = new Intent(MainActivity.this, MenuActivity.class);
                 menuIntent.putExtra(EXTRA_INT , position);
                 startActivity(menuIntent);
             } else {
-                editTextName.setText("");
-                editTextPass.setText("");
+                if( iter == 2){
+                    Toast.makeText(this, "App is closed due to 3 wrong password trials.", Toast.LENGTH_LONG).show();
+                    finish();
+                }else{
+                    iter++;
+                    editTextName.setText("Username");
+                    editTextPass.setText("Password");
+                }
             }
         }
     }
