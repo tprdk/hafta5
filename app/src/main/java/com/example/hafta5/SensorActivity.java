@@ -8,6 +8,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.List;
 
 public class SensorActivity extends AppCompatActivity implements SensorEventListener {
@@ -56,7 +58,8 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                 z_old=z;
             }else {
                 estimatedTime = System.currentTimeMillis() - currentTime;
-                if (estimatedTime > 10000){
+                if (estimatedTime > 5000){
+                    Toast.makeText(this, "Reached 5 seconds", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }

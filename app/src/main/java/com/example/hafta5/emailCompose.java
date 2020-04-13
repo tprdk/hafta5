@@ -8,13 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class emailCompose extends AppCompatActivity implements View.OnClickListener {
+public class emailCompose extends AppCompatActivity {//implements View.OnClickListener {
 
-    Button buttonSend;
-    EditText editText_to, editText_from, editText_cc, editText_bcc, editText_subject, editText_mail;
-    Uri URI;
+    Button buttonSend, buttonAttach;
+    EditText editText_to, editText_from, editText_subject, editText_mail;
+    TextView textView_attach;
+    Uri URI = null;
+    private static final int PICK_FROM_GALLERY = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,45 +28,58 @@ public class emailCompose extends AppCompatActivity implements View.OnClickListe
         editText_to = (EditText) findViewById(R.id.editText_to);
         editText_mail = (EditText) findViewById(R.id.editText_mail);
         editText_subject = (EditText) findViewById(R.id.editText_subject);
-        editText_cc = (EditText) findViewById(R.id.editText_cc);
-        editText_bcc = (EditText) findViewById(R.id.editText_bcc);
-
+        textView_attach = (TextView) findViewById(R.id.textView_attach);
         buttonSend = (Button) findViewById(R.id.button_send);
-        buttonSend.setOnClickListener(this);
+
+        buttonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
+            }
+        });
+
+        buttonAttach = (Button) findViewById(R.id.button_attach);
+        buttonAttach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addAttach();
+            }
+        });
+       // buttonSend.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        String receiver = editText_to.getText().toString();
-        String cc = editText_cc.getText().toString();
-        String bcc = editText_bcc.getText().toString();
-        String subject = editText_subject.getText().toString();
-        String message = editText_mail.getText().toString();
-
-        Intent mailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto", receiver, null));
-        mailIntent.putExtra(Intent.EXTRA_CC, cc);
-        mailIntent.putExtra(Intent.EXTRA_BCC, bcc);
-        mailIntent.putExtra(Intent.EXTRA_SUBJECT , subject);
-        mailIntent.putExtra(Intent.EXTRA_TEXT , message);
-
-        try{
-            startActivity(Intent.createChooser(mailIntent, "Send email via..."));
-        }catch (Exception e){
-            Toast.makeText(emailCompose.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+    public void sendMail(){
+        try {
+            String to = editText_to.getText().toString();
+            String subject = editText_subject.getText().toString();
+            String mail = editText_mail.getText().toString();
+            Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+            emailIntent.setType("plain/text");
+            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{to});
+            emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+            if (URI != null) {
+                emailIntent.putExtra(Intent.EXTRA_STREAM, URI);
+            }
+            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, mail);
+            this.startActivity(Intent.createChooser(emailIntent, "Sending email..."));
+        } catch (Throwable t) {
+            Toast.makeText(this, "Request failed try again: "+ t.toString(), Toast.LENGTH_LONG).show();
         }
-
-
-       /* Intent mailIntent = new Intent(Intent.ACTION_SENDTO);
-        mailIntent.setType("plain/text");
-        mailIntent.putExtra(Intent.EXTRA_EMAIL, receiver);
-        mailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        if (URI != null) {
-            mailIntent.putExtra(Intent.EXTRA_STREAM, URI);
-        }
-        mailIntent.putExtra(Intent.EXTRA_TEXT, message);
-        this.startActivity(Intent.createChooser(mailIntent, "Sending email..."));
-        */
     }
 
+    public void addAttach(){
+        Intent imageIntent = new Intent();
+        imageIntent.setType("image/*");
+        imageIntent.setAction(Intent.ACTION_GET_CONTENT);
+        imageIntent.putExtra("return-data", true);
+        startActivityForResult(Intent.createChooser(imageIntent, "Complete action using"), PICK_FROM_GALLERY);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
+            URI = data.getData();
+            textView_attach.setText(URI.getLastPathSegment());
+            textView_attach.setVisibility(View.VISIBLE);
+        }
+    }
 }

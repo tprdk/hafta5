@@ -43,7 +43,7 @@ public class newUser extends AppCompatActivity{
                         editText_mail.getText().toString(),editText_username.getText().toString(),editText_password.getText().toString());
                 personList.add(person);
                 saveData();
-                Toast.makeText(newUser.this, "Account is created succesfully.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(newUser.this, "Account is created successfully.", Toast.LENGTH_SHORT).show();
             }
         });
     }

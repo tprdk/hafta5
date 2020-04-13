@@ -27,10 +27,9 @@ public class myInfo extends AppCompatActivity implements AdapterView.OnItemSelec
     private TextView textView_name;
     private Spinner spinner_gender, spinner_mode;
     private Button button_save;
-    private String name,gender,mode;
-    private int age,weight,height;
+    private String gender,mode;
+    private int age,weight,height,position;
     private ArrayList<Person> personList;
-    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
