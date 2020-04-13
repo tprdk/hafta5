@@ -15,7 +15,8 @@ public class Person  implements Serializable{
     private String email;
     private String username;
     private String password;
-    private String sex;
+    private String gender;
+    private String mode;
     private int image;
     private int height;
     private int weight;
@@ -27,9 +28,13 @@ public class Person  implements Serializable{
         this.email = email;
         this.username = username;
         this.password = password;
+        this.image = R.drawable.ic_person_man;
+        this.height = 0;
+        this.weight = 0;
+        this.age = 0;
+        this.mode = "Dark";
+        this.gender = "Male";
     }
-    public Person(){}
-
 
     public int getImage() {
         return image;
@@ -61,17 +66,6 @@ public class Person  implements Serializable{
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -115,4 +109,15 @@ public class Person  implements Serializable{
     public void setPicture(int image) {
         this.image = image;
     }
+
+    public String getName() { return name; }
+
+    public String getGender() { return gender;}
+
+    public void setGender(String gender) { this.gender = gender; }
+
+    public String getMode() { return mode; }
+
+    public void setMode(String mode) { this.mode = mode; }
+
 }

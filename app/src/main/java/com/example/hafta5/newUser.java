@@ -10,23 +10,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class newUser extends AppCompatActivity implements View.OnClickListener {
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+public class newUser extends AppCompatActivity{
     EditText editText_name, editText_surname, editText_mail,
              editText_username,editText_password, editText_password2;
     Button button_SignUp;
-    SharedPreferences sharedpreferences;
-    public static final String MyPREFERENCES = "MyPrefs" ;
-    public static final String sp_name = "nameKey";
-    public static final String sp_surname = "surnameKey";
-    public static final String sp_mail = "mailKey";
-    public static final String sp_username = "usernameKey";
-    public static final String sp_password = "passwordKey";
-
+    private ArrayList<Person> personList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
-
+        loadData();
         editText_name = (EditText) findViewById(R.id.editText_name);
         editText_surname = (EditText) findViewById(R.id.editText_surname);
         editText_mail = (EditText) findViewById(R.id.editText_email);
@@ -35,31 +34,38 @@ public class newUser extends AppCompatActivity implements View.OnClickListener {
         editText_password2 = (EditText) findViewById(R.id.editText_password2);
 
         button_SignUp = (Button) findViewById(R.id.button_signUp);
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+       // sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
-        button_SignUp.setOnClickListener(this);
+        button_SignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Person person = new Person(editText_name.getText().toString(),editText_surname.getText().toString(),
+                        editText_mail.getText().toString(),editText_username.getText().toString(),editText_password.getText().toString());
+                personList.add(person);
+                saveData();
+                Toast.makeText(newUser.this, "Account is created succesfully.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    @Override
-    public void onClick(View v) {
-        if (editText_password.getText().toString().equals(editText_password2.getText().toString())){
-        /*
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-            editor.putString(sp_name, editText_name.getText().toString());
-            editor.putString(sp_surname, editText_surname.getText().toString());
-            editor.putString(sp_mail, editText_mail.getText().toString());
-            editor.putString(sp_username, editText_username.getText().toString());
-            editor.putString(sp_password, editText_password.getText().toString());
-            editor.commit();
-          */
-            Toast.makeText(newUser.this, "Account is created successfully.", Toast.LENGTH_LONG).show();
-        }else{
-            editText_name.setText("");
-            editText_surname.setText("");
-            editText_mail.setText("");
-            editText_username.setText("");
-            editText_password.setText("");
-            editText_password2.setText("");
+    public void saveData(){
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(personList);
+        editor.putString("personList",json);
+        editor.apply();
+    }
+
+    public void loadData() {
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString("personList", null);
+        Type type = new TypeToken<ArrayList<Person>>() {}.getType();
+        personList = gson.fromJson(json, type);
+        if(personList == null) {
+            personList = new ArrayList<Person>();
         }
     }
 }
+
