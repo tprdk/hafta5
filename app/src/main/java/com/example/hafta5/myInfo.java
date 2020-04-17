@@ -88,6 +88,7 @@ public class myInfo extends AppCompatActivity implements AdapterView.OnItemSelec
         editText_weight.setText(Integer.toString(personList.get(position).getWeight()));
         editText_age.setText(Integer.toString(personList.get(position).getAge()));
         textView_name.setText(personList.get(position).getName());
+        textView_name.setTextSize(20);
     }
 
     public void saveData(){

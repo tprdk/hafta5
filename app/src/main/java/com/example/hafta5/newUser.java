@@ -39,7 +39,8 @@ public class newUser extends AppCompatActivity{
         button_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkExist(editText_username.getText().toString()) && checkSpace()){
+                if (checkExist(editText_username.getText().toString()) && checkSpace()
+                && editText_password.getText().toString().trim().equals(editText_password2.getText().toString().trim())){
                     Person person = new Person(editText_name.getText().toString(),editText_surname.getText().toString(),
                             editText_mail.getText().toString(),editText_username.getText().toString(),editText_password.getText().toString());
                     personList.add(person);
@@ -49,6 +50,8 @@ public class newUser extends AppCompatActivity{
                 else{
                     if (!checkSpace()){
                         Toast.makeText(newUser.this, "Any information can not be space.", Toast.LENGTH_LONG).show();
+                    }else if (!editText_password.getText().toString().trim().equals(editText_password2.getText().toString().trim())){
+                        Toast.makeText(newUser.this, "Two passwords are not identical!", Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(newUser.this, "This username is already in use.", Toast.LENGTH_LONG).show();
                     }
@@ -58,12 +61,9 @@ public class newUser extends AppCompatActivity{
     }
 
     private boolean checkSpace(){
-        return (editText_name.getText().toString().trim() != "" &&
-                editText_password.getText().toString().trim() != ""&&
-                editText_surname.getText().toString().trim() != "" &&
-                editText_password2.getText().toString().trim() != ""&&
-                editText_username.getText().toString().trim() != "" &&
-                editText_mail.getText().toString().trim() != "");
+        return (editText_name.getText().toString().trim() != "" && editText_password.getText().toString().trim() != ""&&
+                editText_surname.getText().toString().trim() != "" && editText_password2.getText().toString().trim() != ""&&
+                editText_username.getText().toString().trim() != "" && editText_mail.getText().toString().trim() != "");
     }
 
     private boolean checkExist(String username){

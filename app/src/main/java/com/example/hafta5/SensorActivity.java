@@ -38,7 +38,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
         if(event.sensor.getType() == Sensor.TYPE_LIGHT){
             float lux = event.values[0];
-            if(lux < 10000){
+            if(lux < 50){
                 textView_sensors.setBackgroundColor(Color.BLACK);
                 textView_sensors.setTextColor(Color.WHITE);
             }else{

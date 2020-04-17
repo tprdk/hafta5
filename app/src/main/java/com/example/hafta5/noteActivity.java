@@ -66,9 +66,7 @@ public class noteActivity extends AppCompatActivity {
             }
         });
 
-
         //for deleting an item using longClick
-
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {

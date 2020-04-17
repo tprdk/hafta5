@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(newUserIntent);
         }
         else {
-            nameOfPerson = editTextName.getText().toString();
-            passOfPerson = editTextPass.getText().toString();
+            nameOfPerson = editTextName.getText().toString().trim();
+            passOfPerson = editTextPass.getText().toString().trim();
             position = checkPass(nameOfPerson, passOfPerson);
 
             if ( position != -1 ) {
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     iter++;
                     editTextName.setText("Username");
                     editTextPass.setText("Password");
+                    Toast.makeText(this, "Wrong username or password!",Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -102,4 +103,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             personList = new ArrayList<Person>();
         }
     }
+
 }

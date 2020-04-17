@@ -47,23 +47,29 @@ public class emailCompose extends AppCompatActivity {
     }
 
     public void sendMail(){
-        try {
-            String to = editText_to.getText().toString();
-            String subject = editText_subject.getText().toString();
-            String mail = editText_mail.getText().toString();
-            Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-            emailIntent.setType("plain/text");
-            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{to});
-            emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
-            if (URI != null) {
-                emailIntent.putExtra(Intent.EXTRA_STREAM, URI);
+        if(checkSpace()){
+            try {
+                String to = editText_to.getText().toString();
+                String subject = editText_subject.getText().toString();
+                String mail = editText_mail.getText().toString();
+                Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{to});
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+                if (URI != null) {
+                    emailIntent.putExtra(Intent.EXTRA_STREAM, URI);
+                }
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, mail);
+                this.startActivity(Intent.createChooser(emailIntent, "Sending email..."));
+            } catch (Throwable t) {
+                Toast.makeText(this, "Request failed try again: "+ t.toString(), Toast.LENGTH_LONG).show();
             }
-            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, mail);
-            this.startActivity(Intent.createChooser(emailIntent, "Sending email..."));
-        } catch (Throwable t) {
-            Toast.makeText(this, "Request failed try again: "+ t.toString(), Toast.LENGTH_LONG).show();
+        }else{
+
         }
     }
+
+
 
     public void addAttach(){
         Intent imageIntent = new Intent();
@@ -79,5 +85,11 @@ public class emailCompose extends AppCompatActivity {
             textView_attach.setText(URI.getLastPathSegment());
             textView_attach.setVisibility(View.VISIBLE);
         }
+    }
+
+    private boolean checkSpace(){
+        return (editText_to.getText().toString().trim() != "" &&
+                editText_subject.getText().toString().trim() != "" &&
+                editText_mail.getText().toString().trim() != "");
     }
 }
