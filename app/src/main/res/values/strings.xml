@@ -13,7 +13,10 @@
     <string name="menuActivity_personInfo">Person Info</string>
     <string name="menuActivity_myInfo">My Info</string>
     <string name="menuActivity_NoteEditor">Notes</string>
-
+    <string name="menuActivity_Progress">Progress</string>
+    <string name="menuActivity_Alarm">Alarm</string>
+    <string name="menuActivity_Location">Location</string>
+    <string name="menuActivity_Logs">Show Logs</string>
 
     <string name="newUser_name">Name : </string>
     <string name="newUser_surname">Surname : </string>
@@ -30,6 +33,12 @@
     <string name="email_compose_button_attach">Attach</string>
     <string name="email_compose_button_send">Send</string>
 
+    <string name="asyncTask_button_download">Download</string>
+
+    <string name="alarm_button_set">Set Alarm</string>
+    <string name="alarm_switch_onOff">Alarm On</string>
+
+
     <string name="myInfo_name">Name :</string>
     <string name="myInfo_gender">Gender :</string>
     <string name="myInfo_height">Height :</string>
@@ -45,4 +54,5 @@
         <item>Dark</item>
         <item>Light</item>
     </string-array>
+
 </resources>

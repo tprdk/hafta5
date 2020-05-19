@@ -1,76 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MenuActivity">
+    tools:context=".MenuActivity"
+    android:rowCount="7"
+    android:columnCount="3">
 
-        <TextView
-            android:id="@+id/textView_menu_topic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            android:textSize="30dp"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:padding="30dp" />
-
-        <Button
-            android:id="@+id/button_menu_sendMail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menuActivity_sendMail"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@android:color/black"/>
-
-        <Button
-            android:id="@+id/button_menu_sensor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menuActivity_sensor"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@android:color/black"/>
-
-        <Button
-            android:id="@+id/button_menu_notes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menuActivity_NoteEditor"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@android:color/black"/>
-
-        <Button
-            android:id="@+id/button_menu_personInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menuActivity_personInfo"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@android:color/black"/>
 
         <Button
             android:id="@+id/button_menu_myInfo"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menuActivity_myInfo"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@android:color/black"/>
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:text="@string/menuActivity_myInfo" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView_menu_topic"
+            android:layout_width="177dp"
+            android:layout_height="53dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_menu_sendMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:text="@string/menuActivity_sendMail"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/button_menu_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:text="@string/menuActivity_NoteEditor" />
+
+        <Button
+            android:id="@+id/button_menu_sensor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:text="@string/menuActivity_sensor" />
+
+        <Button
+            android:id="@+id/button_menu_personInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:text="@string/menuActivity_personInfo" />
+
+        <Button
+            android:id="@+id/button_menu_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:text="@string/menuActivity_Progress" />
+
+        <Button
+            android:id="@+id/button_menu_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:text="@string/menuActivity_Alarm" />
+
+        <Button
+            android:id="@+id/button_menu_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:text="@string/menuActivity_Location" />
+
+        <Button
+            android:id="@+id/button_menu_Logs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:text="@string/menuActivity_Logs" />
+
+        <Button
+            android:id="@+id/button_menu_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:text="Button" />
+
+</GridLayout>
