@@ -12,7 +12,7 @@
         android:id="@+id/button_async_task_download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Download"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="16dp" />
 
