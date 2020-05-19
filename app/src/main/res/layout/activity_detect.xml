@@ -4,17 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".DetectActivity">
 
+    <TextView
+        android:id="@+id/textView_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="" />
 
     <TextView
-        android:id="@+id/textView_ctr"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView_probability"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="20dp"
-        android:layout_gravity="center"
         android:textAlignment="center"
-        android:text="TextView" />
+        android:text="" />
 
+    <TextView
+        android:id="@+id/textView_counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="" />
 </LinearLayout>

@@ -5,30 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".LocationActivity">
 
     <Button
         android:id="@+id/button_getLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/location_get_Location" />
 
     <TextView
         android:id="@+id/textView_showLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="TextView" />
+        android:textAlignment="center"
+        android:text="@string/location_get_Location" />
 
     <Button
         android:id="@+id/button_send_locationSMS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/location_send_Watsapp" />
 
     <Button
         android:id="@+id/button_send_locationWp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/location_send_Watsapp" />
 </LinearLayout>

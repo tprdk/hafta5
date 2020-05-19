@@ -38,6 +38,11 @@
     <string name="alarm_button_set">Set Alarm</string>
     <string name="alarm_switch_onOff">Alarm On</string>
 
+    <string name="location_send_Watsapp">Send Location Via Whatsapp</string>
+    <string name="location_send_sms">Send Location Via SMS</string>
+    <string name="location_get_Location">Get Location</string>
+    <string name="location_your_Location">Your Location</string>
+
 
     <string name="myInfo_name">Name :</string>
     <string name="myInfo_gender">Gender :</string>

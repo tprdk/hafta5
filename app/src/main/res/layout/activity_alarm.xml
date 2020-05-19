@@ -13,7 +13,7 @@
         android:layout_height="108dp"
         android:layout_row="1"
         android:layout_column="2"
-        android:text="Switch"
+        android:text="On / Off"
         tools:layout_editor_absoluteX="290dp"
         tools:layout_editor_absoluteY="183dp" />
 

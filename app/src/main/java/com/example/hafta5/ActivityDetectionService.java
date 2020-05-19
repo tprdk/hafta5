@@ -17,7 +17,8 @@ import java.util.List;
 
 public class ActivityDetectionService extends IntentService {
     protected static final String TAG = "ActivityRecognizer";
-    public static String currentActivity = "EX";
+    public static String currentActivity = "";
+    public static int currentConfidence = 0;
     public static int counter = 0 ;
     private boolean flag = false;
     private int confTreshold = 50;
@@ -43,7 +44,8 @@ public class ActivityDetectionService extends IntentService {
             switch(activity.getType()){
                 case DetectedActivity.ON_FOOT:{
                     Log.d(TAG , "IN_VEHICLE : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);
-                    currentActivity = "IN_VEHICLE : " + activity.getConfidence();
+                    currentActivity = "IN VEHICLE";
+                    currentConfidence = activity.getConfidence();
                     if(activity.getConfidence() > confTreshold)
                         flag = true;
                     Log.d(TAG , "IN_VEHICLE : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);
@@ -51,7 +53,8 @@ public class ActivityDetectionService extends IntentService {
                 }
                 case DetectedActivity.STILL:{
                     Log.d(TAG , "STILL : " + activity.getConfidence() + "Flag = " + flag + " Counter : " + counter);
-                    currentActivity = "STILL : " + activity.getConfidence();
+                    currentActivity = "STILL";
+                    currentConfidence = activity.getConfidence();
                     if(flag){
                         counter++;
                         flag = false;
@@ -61,7 +64,8 @@ public class ActivityDetectionService extends IntentService {
                 }
                 case DetectedActivity.RUNNING:{
                     Log.d(TAG , "RUNNING : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);
-                    currentActivity = "RUNNING : " + activity.getConfidence();
+                    currentActivity = "RUNNING";
+                    currentConfidence = activity.getConfidence();
                     if(activity.getConfidence() > confTreshold)
                         flag = true;
                     Log.d(TAG , "RUNNING : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);
@@ -69,7 +73,8 @@ public class ActivityDetectionService extends IntentService {
                 }
                 case DetectedActivity.WALKING:{
                     Log.d(TAG , "WALKING : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);
-                    currentActivity = "WALKING : " + activity.getConfidence();
+                    currentActivity = "WALKING";
+                    currentConfidence = activity.getConfidence();
                     if(activity.getConfidence() > confTreshold)
                         flag = true;
                     Log.d(TAG , "WALKING : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);
@@ -77,7 +82,8 @@ public class ActivityDetectionService extends IntentService {
                 }
                 case DetectedActivity.TILTING:{
                     Log.d(TAG , "TILTING : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);
-                    currentActivity = "TILTING : " + activity.getConfidence();
+                    currentActivity = "TILTING";
+                    currentConfidence = activity.getConfidence();
                     if(activity.getConfidence() > confTreshold)
                         flag = true;
                     Log.d(TAG , "TILTING : " + activity.getConfidence()+ "Flag = " + flag + " Counter : " + counter);

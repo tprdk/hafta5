@@ -26,7 +26,7 @@ public class DetectActivity extends AppCompatActivity
     implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient mApiClient;
-    public static TextView textView_activity;
+    public static TextView textView_activity, textView_counter, textView_prob;
 
     private Thread thread;
 
@@ -35,7 +35,9 @@ public class DetectActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detect);
 
-        textView_activity = findViewById(R.id.textView_ctr);
+        textView_activity = findViewById(R.id.textView_activity);
+        textView_counter = findViewById(R.id.textView_counter);
+        textView_prob = findViewById(R.id.textView_probability);
 
         mApiClient = new GoogleApiClient.Builder(DetectActivity.this)
                 .addApi(ActivityRecognition.API)
@@ -57,7 +59,9 @@ public class DetectActivity extends AppCompatActivity
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    setText(ActivityDetectionService.currentActivity + " : " +ActivityDetectionService.counter);
+                                    setActivityText("Activity :"+ActivityDetectionService.currentActivity);
+                                    setCounterText("Counter : " +ActivityDetectionService.counter);
+                                    setProbText("Confidence : " +ActivityDetectionService.currentConfidence);
                                 }
                             });
                         }
@@ -72,8 +76,12 @@ public class DetectActivity extends AppCompatActivity
         thread.start();
     }
 
-    public void setText(String str){
+    public void setActivityText(String str){
         textView_activity.setText(str);
+    }
+    public void setCounterText(String str){ textView_counter.setText(str); }
+    public void setProbText(String str){
+        textView_prob.setText(str);
     }
 
     @Override
